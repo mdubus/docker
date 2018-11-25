@@ -1,0 +1,4 @@
+apt update
+apt upgrade
+apt-get install clang
+apt-get install git
