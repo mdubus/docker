@@ -1,0 +1,1 @@
+docker exec -ti spawning-pool mysql -u root -p zerglings
