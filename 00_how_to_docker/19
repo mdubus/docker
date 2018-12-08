@@ -1,0 +1,22 @@
+echo "from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+	return '<h1>Hello World!</h1>'" > app.py
+
+docker run -it\
+	--name Abathur\
+	--mount type=bind,source="$(pwd)",target=/root\
+	-w /root\
+	-p 3000:3000 python:2-slim\
+	sh -c "pip install Flask &&\
+	FLASK_APP=app.py flask run\
+	--port 3000\
+	--host 0.0.0.0"
+
+
+# le -w sert a indiquer le repertoire dans lequel on se trouve au lancement. 
+# Pour verifier que cela fonctionne, faire par exemple un ls a la fin de la commande, on doit voir apparaitre les fichiers dans le repertoire courant
+
+# On met 0.0.0.0 en host pour ouvrir tous les ports. Sinon de base ca tourne sur localhost.
