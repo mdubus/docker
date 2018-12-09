@@ -1,3 +1,4 @@
+set -x
 docker run \
 --name spawning-pool \
 --restart unless-stopped \

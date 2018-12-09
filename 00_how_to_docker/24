@@ -1,3 +1,4 @@
+set -x
 docker service create \
 	--name orbital-command \
 	--network overmind \

@@ -1,3 +1,4 @@
+set -x
 apt update
 apt upgrade
 apt-get install clang

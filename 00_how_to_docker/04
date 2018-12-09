@@ -1,1 +1,2 @@
+set -x
 docker pull hello-world

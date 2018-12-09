@@ -1,3 +1,4 @@
+set -x
 docker run \
 --name lair \
 -p 8080:80 \

@@ -1,1 +1,4 @@
-docker-machine create --driver virtualbox Char
+set -x
+docker-machine create --virtualbox-boot2docker-url https://github.com/boot2docker/boot2docker/releases/download/v18.06.0-ce/boot2docker.iso Char
+
+# On precise la version de Boot2Docker sinon ca plante a la question 26

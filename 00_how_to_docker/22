@@ -1,3 +1,4 @@
+set -x
 docker-machine ssh Aiur\
 	"docker swarm join\
 	--token $(docker swarm join-token manager -q)\
