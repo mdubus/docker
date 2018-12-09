@@ -1,0 +1,2 @@
+set -x
+docker service logs $(docker ps --filter name=engineering-bay --last 1 --format {{.Names}}) --follow
