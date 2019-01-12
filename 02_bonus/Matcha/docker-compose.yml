@@ -1,0 +1,33 @@
+version: '3'
+services:
+    sql:
+        image: mysql
+        networks:
+          - morgane
+        ports:
+          - 3306:3306
+        container_name: 'matcha_db'
+        volumes:
+            - db_data:/var/lib/mysql
+        restart: unless-stopped
+        environment:
+            - MYSQL_ROOT_PASSWORD=morgane
+            - MYSQL_DATABASE=matcha
+        command: '--default-authentication-plugin=mysql_native_password'
+
+    phpMyAdmin:
+        image: phpmyadmin/phpmyadmin
+        networks:
+          - morgane
+        ports:
+          - 3307:80
+        environment:
+          - PMA_HOST=matcha_db
+          - PMA_PORT=3306
+        container_name: phpMyAdmin
+
+networks:
+  morgane:
+
+volumes:
+    ? db_data
