@@ -10,7 +10,8 @@ RUN apt-get update -y; \
 	curl -sL https://deb.nodesource.com/setup_10.x | bash -; \
 	apt-get install -y npm; \
 	npm install -g yarn; \
-	npm i -g npx; \
+	npm i -g npx
 
-# docker run -it --mount type=bind,source="$(pwd)",target=/react-app -w /react-app -p 3001:3000 react sh -c "npx create-react-app my-app && cd my-app && yarn start"
+# docker build --tag react .
+# ./script.sh
 # L'app est accessible sur $(docker-machine ip Char):3001
