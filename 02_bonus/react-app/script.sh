@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf myapp
+rm -rf my-app
 SCRIPT="
 npx create-react-app my-app && \
 	cd my-app && \
