@@ -1,0 +1,10 @@
+FROM	ubuntu
+
+RUN		apt-get update -y && apt-get upgrade -y
+RUN		apt-get install -y curl openssh-server ca-certificates
+RUN		curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | bash
+RUN		EXTERNAL_URL="http://gitlab.example.com" apt-get install -y gitlab-ce
+#RUN		initctl restart gitlab-runsvdir
+#RUN		gitlab-ctl reconfigure
+
+
