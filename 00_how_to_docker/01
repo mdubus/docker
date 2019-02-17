@@ -1,4 +1,9 @@
 set -x
-docker-machine create --virtualbox-boot2docker-url https://github.com/boot2docker/boot2docker/releases/download/v18.06.0-ce/boot2docker.iso Char
+docker-machine create \
+	--driver virtualbox \
+	--virtualbox-cpu-count '2' \
+	--virtualbox-memory '2048' \
+	--virtualbox-boot2docker-url https://github.com/boot2docker/boot2docker/releases/download/v18.06.0-ce/boot2docker.iso Char
 
-# On precise la version de Boot2Docker sinon ca plante a la question 26
+# On precise la version de Boot2Docker sinon ça plante à la question 26
+# On augmente les ressources allouées à la machine pour l'exo Gitlab

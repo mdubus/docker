@@ -1,4 +1,4 @@
 set -x
-docker network create -d overlay overmind
+docker network create --internal -d overlay overmind
 
 # -d permet de specifier le type de reseau que l'on souhaite creer

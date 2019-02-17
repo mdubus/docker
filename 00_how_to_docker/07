@@ -1,2 +1,2 @@
 set -x
-docker container inspect overlord | grep "IPAddress"
+docker container inspect overlord --format {{.NetworkSettings.IPAddress}}

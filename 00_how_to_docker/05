@@ -1,2 +1,2 @@
 set -x
-docker run hello-world
+docker run --rm hello-world
