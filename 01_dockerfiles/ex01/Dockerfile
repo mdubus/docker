@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:9
 
 LABEL maintainer="mdubus@student.42.fr"
 

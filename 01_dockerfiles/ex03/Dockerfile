@@ -34,10 +34,25 @@ ENTRYPOINT  service ssh start && \
 				gitlab-ctl tail
 
 # Build
-# docker build --build-arg GITLAB_IP=(docker-machine ip Char) -t gitlab .
+# docker build --build-arg GITLAB_IP=$(docker-machine ip Char) -t gitlab .
+
 # Run
 # docker run --rm -it -p 8000:443 -p 8022:22 --privileged gitlab
+
 # Test
-# open https://(docker-machine ip Char):8000
-# Clone
-# env GIT_SSL_NO_VERIFY=true git clone https://(docker-machine ip Char):8000/root/<repo>.git
+# open https://$(docker-machine ip Char):8000
+
+# Clone HTTPS
+# env GIT_SSL_NO_VERIFY=true git clone https://$(docker-machine ip Char):8000/root/<repo>.git
+
+# Push HTTPS
+# env GIT_SSL_NO_VERIFY=true git push
+
+# Clone SSH
+# ssh-keygen -t ed25519 -C 'root@gitlab.com' -f id_ed25519
+# pbcopy < id_ed25519.pub
+# ssh -T -i id_ed25519 -p 8022 git@$(docker-machine ip Char)
+# env GIT_SSH_COMMAND='ssh -i id_ed25519 -p 8022' git clone git@$(docker-machine ip Char):root/<repo>.git
+
+# Push SSH
+# env GIT_SSH_COMMAND='ssh -i ../id_ed25519 -p 8022' git push
